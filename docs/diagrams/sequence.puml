@@ -1,0 +1,18 @@
+@startuml sequence
+actor User
+
+User -> View: Request products page
+View -> ProductController: productsController.fetchProducts()
+ProductController -> RemoteDataProvider: [GET] /teste-front
+RemoteDataProvider -> ProductController: Products 
+ProductController -> View: Products
+
+User -> View: Add new product
+View -> User: Product form
+User -> View: Submit product form
+View -> ProductController: productsController.saveProduct()
+ProductController -> RemoteDataProvider: [POST] /teste-front
+RemoteDataProvider -> ProductController: 200 OK
+ProductController -> View: Success message
+ProductController -> View: Refetch products
+@enduml
