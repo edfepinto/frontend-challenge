@@ -26,9 +26,13 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
       backgroundColor="rgba(0, 0, 0, 0.5)"
       zIndex="base"
       onClick={onClose}
-      overflow="auto"
     >
-      <div onClick={(e) => e.stopPropagation()}>{children}</div>
+      <div
+        style={{ maxWidth: "90%", maxHeight: "90%" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {children}
+      </div>
     </Box>,
     modalRoot
   );
