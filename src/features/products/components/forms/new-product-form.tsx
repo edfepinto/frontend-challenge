@@ -1,5 +1,5 @@
 import SweetAlert from "sweetalert2";
-import { Flex } from "@chakra-ui/react";
+import { Flex, useBreakpointValue } from "@chakra-ui/react";
 import Header from "../../../../components/header";
 import { ReactNode } from "react";
 import BaseForm from "./base-product-form";
@@ -10,18 +10,23 @@ interface NewProductFormProps {
   onNewProduct: () => void;
 }
 
-const Container: React.FC<{ children: ReactNode }> = ({ children }) => (
-  <Flex
-    direction="column"
-    h="max-content"
-    w="80vw"
-    overflow="auto"
-    p={12}
-    bgColor="white"
-  >
-    {children}
-  </Flex>
-);
+const Container: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const isMobile = useBreakpointValue({ base: true, lg: false });
+
+  return (
+    <Flex
+      direction="column"
+      h="max-content"
+      maxH="90vh"
+      w="80vw"
+      p={isMobile ? 4 : 12}
+      bgColor="white"
+      overflow="auto"
+    >
+      {children}
+    </Flex>
+  );
+};
 
 export default function NewProductForm({ onNewProduct }: NewProductFormProps) {
   return (
