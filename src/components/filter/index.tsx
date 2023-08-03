@@ -56,9 +56,10 @@ export default function Filter({
   const [filter, setFilter] = useState(getDefaultFilterObject(filterFields));
   const debouncedOnFilterChange = useDebouncedCallback(
     onFilterChange,
-    filterConst.DEBOUNCE_MS_TIME
+    filterConst.DEBOUNCE_MS_TIME,
   );
-  const [isMobileCollapseExpanded, setIsMobileCollapseExpanded] = useState(false);
+  const [isMobileCollapseExpanded, setIsMobileCollapseExpanded] =
+    useState(false);
   const isMobile = useBreakpointValue({ base: true, lg: false });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

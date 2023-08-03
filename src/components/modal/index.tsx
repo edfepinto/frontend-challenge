@@ -34,7 +34,7 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
         {children}
       </div>
     </Box>,
-    modalRoot
+    modalRoot,
   );
 }
 

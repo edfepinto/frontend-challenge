@@ -25,40 +25,42 @@ const axios = Axios.create({
 const apiDataProvider = {
   getProductsList: async (): Promise<ApiProduct[]> => {
     const response = await axios.get<ApiProduct[]>(
-      apiConfig.resources.products
+      apiConfig.resources.products,
     );
     return response.data;
   },
 
   getOneProduct: async (id: number): Promise<ApiProduct> => {
     const response = await axios.get<ApiProduct>(
-      apiConfig.resources.oneProduct.replace(":id", String(id))
+      apiConfig.resources.oneProduct.replace(":id", String(id)),
     );
     return response.data;
   },
 
-  createProduct: async (data: ApiProduct | Partial<ApiProduct>): Promise<ApiSuccessResponse> => {
+  createProduct: async (
+    data: ApiProduct | Partial<ApiProduct>,
+  ): Promise<ApiSuccessResponse> => {
     const response = await axios.post<ApiSuccessResponse>(
       apiConfig.resources.products,
-      data
+      data,
     );
     return response.data;
   },
 
   updateProduct: async (
     id: number,
-    data: Partial<ApiProduct>
+    data: Partial<ApiProduct>,
   ): Promise<ApiSuccessResponse> => {
     const response = await axios.patch<ApiSuccessResponse>(
       apiConfig.resources.oneProduct.replace(":id", String(id)),
-      data
+      data,
     );
     return response.data;
   },
 
   deleteProduct: async (id: number): Promise<ApiSuccessResponse> => {
     const response = await axios.delete<ApiSuccessResponse>(
-      apiConfig.resources.deleteProduct.replace(":id", String(id))
+      apiConfig.resources.deleteProduct.replace(":id", String(id)),
     );
     return response.data;
   },
@@ -70,7 +72,7 @@ const apiDataProvider = {
 
   getProductPagination: async (page: number): Promise<ApiProduct[]> => {
     const response = await axios.get<ApiProduct[]>(
-      apiConfig.resources.pagination.replace(":page", String(page))
+      apiConfig.resources.pagination.replace(":page", String(page)),
     );
     return response.data;
   },

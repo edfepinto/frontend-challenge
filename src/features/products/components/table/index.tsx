@@ -29,7 +29,7 @@ export default function ProductsTable({
   onEditProduct,
 }: ProductsListProps) {
   const [editProduct, setEditProduct] = useState<ProductModel>(
-    new ProductModel({})
+    new ProductModel({}),
   );
   const [isEditProductModalOpen, setIsEditProductModalOpen] = useState(false);
 

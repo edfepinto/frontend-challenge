@@ -4,20 +4,26 @@ interface CallbackValue {
   [key: string]: string;
 }
 
-export default function useDebouncedCallback(callback: (value: any) => void, delay: number) {
-  const [timer, setTimer] = useState<number>();
+export default function useDebouncedCallback(
+  callback: (value: any) => void,
+  delay: number
+) {
+  const [timer, setTimer] = useState<any>();
 
-  const debouncedCallback = useCallback((value: CallbackValue) => {
-    if (timer) {
-      clearTimeout(timer);
-    }
+  const debouncedCallback = useCallback(
+    (value: CallbackValue) => {
+      if (timer) {
+        clearTimeout(timer);
+      }
 
-    setTimer(
-      setTimeout(() => {
-        callback(value);
-      }, delay)
-    );
-  }, [callback, delay]);
+      setTimer(
+        setTimeout(() => {
+          callback(value);
+        }, delay)
+      );
+    },
+    [callback, delay]
+  );
 
   useEffect(() => {
     return () => {

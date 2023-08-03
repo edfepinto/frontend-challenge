@@ -19,7 +19,7 @@ const productsController = {
             manufacturer: apiProduct.fabricante,
             stock: apiProduct.estoque,
             image: apiProduct.imagemProduto,
-          })
+          }),
       );
       return mappedProducts;
     } catch (error) {
@@ -42,7 +42,7 @@ const productsController = {
 
       const matchTypeCriteria = Object.keys(filter);
       const matchedAllTypeCriteria = matchTypeCriteria.every(
-        (criteria) => matches[criteria]
+        (criteria) => matches[criteria],
       );
 
       return matchedAllTypeCriteria;
@@ -54,7 +54,7 @@ const productsController = {
   saveProduct: async (product: ProductModel) => {
     try {
       const response = await apiDataProvider.createProduct(
-        product.toApiProduct()
+        product.toApiProduct(),
       );
       if (response.statusCode === 200) return true;
     } catch (error) {
@@ -75,7 +75,7 @@ const productsController = {
     try {
       const response = await apiDataProvider.updateProduct(
         product.id,
-        product.toApiProduct()
+        product.toApiProduct(),
       );
       if (response.statusCode === 200) return true;
     } catch (error) {

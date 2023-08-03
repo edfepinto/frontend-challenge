@@ -48,7 +48,7 @@ export default function Products() {
 
   function filterProducts() {
     const isFilterEmpty = Object.values(filter).every(
-      (filterValue) => !filterValue
+      (filterValue) => !filterValue,
     );
 
     if (!isFilterEmpty) {
@@ -62,7 +62,7 @@ export default function Products() {
 
   async function listProducts() {
     setIsLoading(true);
-    const products = await productsController.fetchProducts()
+    const products = await productsController.fetchProducts();
     setProducts(products);
     setIsLoading(false);
     return products;

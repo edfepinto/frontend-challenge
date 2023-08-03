@@ -61,7 +61,10 @@ export default function Table({
 
   return (
     <Container>
-      <ChakraTable variant="simple" style={{borderCollapse:"separate", borderSpacing:"0 1rem"}}>
+      <ChakraTable
+        variant="simple"
+        style={{ borderCollapse: "separate", borderSpacing: "0 1rem" }}
+      >
         <Thead>
           <Tr>
             {columns.map((column) => (

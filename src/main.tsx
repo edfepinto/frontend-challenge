@@ -9,6 +9,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ChakraProvider>
       <Products />
     </ChakraProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
-
