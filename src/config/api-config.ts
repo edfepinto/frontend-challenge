@@ -1,4 +1,4 @@
-const baseUrl = "https://homologacao.windel.com.br:3000/teste-front";
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const resources = {
   products: "/",
