@@ -34,6 +34,7 @@ const Container: React.FC<{ children: ReactNode }> = ({ children }) => (
     borderColor="#A0AEC0"
     borderRadius="lg"
     my="6"
+    px="5"
     overflow="auto"
     flex={1}
   >
@@ -60,7 +61,7 @@ export default function Table({
 
   return (
     <Container>
-      <ChakraTable variant="simple">
+      <ChakraTable variant="simple" style={{borderCollapse:"separate", borderSpacing:"0 1rem"}}>
         <Thead>
           <Tr>
             {columns.map((column) => (
@@ -72,7 +73,7 @@ export default function Table({
         </Thead>
         <Tbody>
           {data.map((item) => (
-            <Tr key={item.id}>
+            <Tr key={item.id} bgColor="#E2E8F0">
               {columns.map((column) => (
                 <Td key={column.key}>
                   {column.isImage ? (
